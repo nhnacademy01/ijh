@@ -96,31 +96,53 @@ class accumulation {
 // 주사위 게임(응용 안함)
 class DiceGame {
     public static void main(String[] args) {
-        int user1, user2 = 0;
+        Scanner scanner = new Scanner(System.in);
+        int userCount = 0; // 유저수
+        int diceCount = 0; // 주사위수
+
+        System.out.println("참가자 수를 입력하세요.");
+        userCount = scanner.nextInt();
+        System.out.println("사용하실 주사위 갯수를 입력하세요.");
+        diceCount = scanner.nextInt();
+        int userDiceSum[] = new int[userCount]; // 유저가 돌린주사위값을 전부 합산할 배열
+
+        PlayGame(userDiceSum,diceCount,userCount);
+    }
+
+    static void PlayGame(int userDiceSum[], int diceCount, int usercount) {
+        int winnerDice=0;
+        int winner = 0;
+        int drawCount =0;
         Random random = new Random();
+        System.out.println("주사위를 굴렸습니다.");
 
-        while (true) {
-            int dice1, dice2 = 0;
-            System.out.println("사용자1이 주사위를 굴렸습니다.");
-            dice1 = random.nextInt(6) + 1;
-            dice2 = random.nextInt(6) + 1;
-            user1 = dice1 + dice2;
-            System.out.printf("%d, %d 이 나왔습니다.%n", dice1, dice2);
 
-            System.out.println("사용자2가 주사위를 굴렸습니다.");
-            dice1 = random.nextInt(6) + 1;
-            dice2 = random.nextInt(6) + 1;
-            user2 = dice1 + dice2;
-            System.out.printf("%d, %d 이 나왔습니다.%n", dice1, dice2);
-
-            if (user1 == user2) {
-                System.out.println("무승부입니다.");
-            } else if (user1 > user2) {
-                System.out.printf("사용자1 = %d, 사용자2 = %d 사용자1이 이겼습니다%n", user1, user2);
-            } else {
-                System.out.printf("사용자1 = %d, 사용자2 = %d 사용자2가 이겼습니다%n", user1, user2);
+        // 주사위 굴리는 작업
+        // user수당 dice갯수만큼(2중for문)
+        for (int i = 0; i < usercount ; i++) {
+            for (int j = 0; j < diceCount; j++) {
+                userDiceSum[i] += random.nextInt(6)+1;
             }
-            break;
+        }
+
+        winnerDice = userDiceSum[0]; // 초기값 설정
+        // 주사위합산 값 비교
+        for (int i = 0; i < usercount; i++) {
+            if(winnerDice < userDiceSum[i]) {
+                winnerDice = userDiceSum[i];
+                winner = i;
+            }
+            for (int j = 0; j <= i; j++) {
+                if(userDiceSum[i] == userDiceSum[j]) {
+                    drawCount++;
+                }
+            }
+            System.out.printf("user%d의 결과값은 %d 입니다.%n",i+1, userDiceSum[i]);
+        }
+        if(drawCount > usercount) {
+            System.out.println("무승부 입니다.");
+        } else {
+            System.out.printf("승리자는 user%d 입니다!!", winner+1);
         }
     }
 }
@@ -135,7 +157,7 @@ class RockPaperScissors {
         while (user == computer) {
             System.out.print("가위(1) 바위(2) 보(3): ");
             user = scanner.nextInt();
-            computer = random.nextInt(3) +1;
+            computer = random.nextInt(3) + 1;
 
             switch (user) {
                 case 1:
@@ -160,9 +182,9 @@ class RockPaperScissors {
                     break;
             }
 
-            Play(user,computer);
+            Play(user, computer);
 
-            if(user == computer) {
+            if (user == computer) {
                 System.out.println("비겼습니다. 다시 합니다.");
             }
         }
@@ -186,14 +208,14 @@ class Lotto {
         for (int i = 0; i < 6; i++) {
             lotto[i] = random.nextInt(45) + 1;
             for (int j = 0; j < i; j++) {
-                if(lotto[i] == lotto[j]) {
+                if (lotto[i] == lotto[j]) {
                     i--;
                 }
             }
         }
 
         for (int i = 0; i < lotto.length; i++) {
-            System.out.print(lotto[i]+" ");
+            System.out.print(lotto[i] + " ");
         }
     }
 }
