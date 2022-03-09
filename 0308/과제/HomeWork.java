@@ -7,7 +7,143 @@ public class HomeWork {
     }
 }
 
-// 4칙 연산기
+// 1. TicTacToe
+class TicTacToe {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        char[][] board = new char[3][3]; // 판 배열
+
+        // 알 초기화
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                board[i][j] = ' ';
+            }
+        }
+
+        do {
+            System.out.print("사용자 턴(x y): ");
+            int userX = scanner.nextInt();
+            int userY = scanner.nextInt();
+            if (board[userX][userY] == ' ') {
+                board[userX][userY] = 'O';
+            } else {
+                System.out.println("이미 놓여있는 자리입니다 다시 놓으세요.");
+                continue;
+            }
+
+            DrawBoard(board);
+            WinCheck(board);
+            PlayComputer(board);
+            DrawBoard(board);
+            WinCheck(board);
+        } while (true);
+    }
+
+    static void DrawBoard(char[][] board) {
+        // 바둑판
+        for (int i = 0; i < board.length; i++) {
+            System.out.println(" " + board[i][0] + " | " + board[i][1] + " | " + board[i][2]);
+            if (i != 2) {
+                System.out.println("---|---|---");
+            }
+        }
+    }
+
+    static void PlayComputer(char[][] board) {
+        Random ran = new Random();
+        int comX,comY;
+        System.out.println("컴퓨터 턴");
+
+        do {
+            comX = ran.nextInt(2);
+            comY = ran.nextInt(2);
+            if (board[comX][comY] != ' ') {
+                continue;
+            } else {
+                board[comX][comY] = 'X';
+                break;
+            }
+        } while (true);
+    }
+
+    static void WinCheck (char[][] board) {
+        int userCount = 0, comCount=0;
+
+        // 가로승리
+        for (int i = 0; i <= 2; i++) {
+            for (int j = 0; j <= 2; j++) {
+                if (board[i][j] == 'O') {
+                    userCount++;
+                } else if (board[i][j] == 'X') {
+                    comCount++;
+                }
+            }
+            if (userCount == 3) {
+                System.out.println("유저가 이겼습니다!");
+                System.exit(0);
+            } else if (comCount == 3) {
+                System.out.println("컴퓨터가 이겼습니다!");
+                System.exit(0);
+            }
+            userCount=0;
+            comCount=0;
+        }
+
+        // 세로승리
+        for (int i = 0; i <= 2; i++) {
+            for (int j = 0; j <= 2; j++) {
+                if (board[j][i] == 'O') {
+                    userCount++;
+                } else if (board[j][i] == 'X') {
+                    comCount++;
+                }
+            }
+            if (userCount == 3) {
+                System.out.println("유저가 이겼습니다!");
+                System.exit(0);
+            } else if (comCount == 3) {
+                System.out.println("컴퓨터가 이겼습니다!");
+                System.exit(0);
+            }
+            userCount=0;
+            comCount=0;
+        }
+
+        // 대각승리
+        for (int i = 0; i <= 2; i++) {
+            if (board[i][i] == 'O') {
+                userCount++;
+            } else if (board[i][i] == 'X') {
+                comCount++;
+            }
+        }
+        if (userCount == 3) {
+            System.out.println("유저가 이겼습니다!");
+            System.exit(0);
+        } else if (comCount == 3) {
+            System.out.println("컴퓨터가 이겼습니다!");
+            System.exit(0);
+        }
+        userCount=0;
+        comCount=0;
+        for (int i = 0; i <= 2; i++) {
+            if (board[i][board.length-i-1] == 'O') {
+                userCount++;
+            } else if (board[i][board.length-i-1] == 'X') {
+                comCount++;
+            }
+        }
+        if (userCount == 3) {
+            System.out.println("유저가 이겼습니다!");
+            System.exit(0);
+        } else if (comCount == 3) {
+            System.out.println("컴퓨터가 이겼습니다!");
+            System.exit(0);
+        }
+    }
+}
+
+// 2. 4칙 연산기
 class Calculation {
     public static void main(String[] args) {
         int result = 0;
@@ -41,7 +177,7 @@ class Calculation {
     }
 }
 
-// 4칙 연산 누산기
+// 3. 4칙 연산 누산기
 class accumulation {
     public static void main(String[] args) {
         int result = 0;
@@ -93,7 +229,7 @@ class accumulation {
     }
 }
 
-// 주사위 게임(응용 안함)
+// 4. 주사위 게임
 class DiceGame {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -147,7 +283,7 @@ class DiceGame {
     }
 }
 
-// 가위바위보 게임
+// 5. 가위바위보 게임
 class RockPaperScissors {
     public static void main(String[] args) {
         int user = 0, computer = 0;
@@ -199,7 +335,7 @@ class RockPaperScissors {
     }
 }
 
-// 로또번호 추첨기
+// 6. 로또번호 추첨기
 class Lotto {
     public static void main(String[] args) {
         int[] lotto = new int[6];
@@ -217,5 +353,52 @@ class Lotto {
         for (int i = 0; i < lotto.length; i++) {
             System.out.print(lotto[i] + " ");
         }
+    }
+}
+
+// 7. CardGame
+class CardGame {
+    public static void main(String[] args) {
+        // 1~52
+        int[][] card = {
+                {1,2,3,4},
+                {1,2,3,4,5,6,7,8,9,10,11,12,13}
+        };
+        int[] joker = {14,14}; // 53~54
+        int[][] player1 = new int[2][2];
+        int[][] player2 = new int[2][2];
+
+        SelectCard(player1,player2,card,joker);
+
+    }
+    // 00 01 10 11
+    static void SelectCard(int[][] player1, int[][] player2, int[][] card, int[] joker) {
+        Random random = new Random();
+        int tempNum;
+        int[] tempCard = new int[4];
+        for (int i = 0; i < tempCard.length; i++) {
+            tempNum = random.nextInt(54);
+            for (int j = 0; j < i; j++) {
+                if(tempCard[j] == tempNum) {
+                    i--;
+                } else {
+                    tempCard[i] = tempNum;
+                }
+            }
+        }
+
+        for (int i = 0; i < 2; i++) {
+            player1[0][i] = random.nextInt(14);
+            player2[0][i] = random.nextInt(14);
+
+            if (player1[0][i] != 14) {
+                player1[i][0] = random.nextInt(4);
+            }
+
+            if (player2[0][i] != 14) {
+                player2[i][0] = random.nextInt(4);
+            }
+        }
+
     }
 }
