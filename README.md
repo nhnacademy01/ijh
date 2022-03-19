@@ -101,6 +101,48 @@ is a(상속) : 이다 ex) dvd드라이버는 cd드라이버이다?
 
 *오버로딩, 오버라이딩 차이
 
+# 03 / 14
+
+- shallow copy와 deep Copy중
+
+Q1. shallow copy를 쓰지않는 이유를 swap같은 경우 복사를 했는데도 복사가 안되서 안쓰는줄 알고 이해하고 있었는데 수업 내용을 들으니 반대로 shallow copy로 인해 주소자원을 공유하기 때문에 값들이 같이 바뀌어서 안쓰는거라고 해서 조금 헷갈리는 것 같습니다.
+
+A1. 네 복사가 안되는 것이 아니라 공유가되는 것이 맞습니다.
+A1.하위 속성 중 참조형은 완벽한 복사가 안되고 공유해서 사용하기 때문에 shallow copy가 문제가 생깁니다.
+
+-> 그렇다면 shallow copy는 자원을 공유하는데 왜 swap에선 복사가 안되는것인가?
+
+* StringBuild 와 String Buffer 차이
+
+StringBuild 는 멀티쓰레드 환경에서 취약하고,
+String Buffer는 syncnorized로 동기화를 하기 때문에 속도가 느리지만 멀티쓰레드 환경에서 안전하다 
+
+* Boxing과 UnBoxing(편의를 위해 java에서 제공하는 기능)
+int -> 인티저 [ 박싱(객체로 감싸면) ]
+인티저 - > int [ 언박싱(객체를 풀어내면) ]박스를 풀어서 실제값으로 했다.
+
+# 03 / 15 
+ofInstance (?)
+
+- 굳이 try / catch를 써서 예외처리를 할 필요가 있나? 그냥 if문 걸어서 sout 출력하는게 코드가 더 줄이 짧지 않을까?
+
+# 03 / 16
+TODO, FIXME 구문
+
+* set, map // 해야됨
+
+# 03 / 17
+- 3종세트 wildcard
+upper, lower, 일반
+
+컨 + h -> 상속구조
+
+메소드에 final이 붙어있으면 재정의불가.
+class에 final이 붙어있으면 상속불가
+변수에 final이 붙어있으면 재할당불가
+
+인스턴스 변수 == 필드 (?)
+
 # 03 / 18 
 - map, flatMap 차이
 stream, lambda 마스터
