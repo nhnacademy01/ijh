@@ -12,7 +12,7 @@ for (let i = 1; i < 31; i++) {
     document.write('<td>' + 
     `<input type='text' id='textBox${i}'>` + 
     `<button onclick="OnClickAddBtn(${i})">추가</button><br>` + 
-    `<button id="list${i}" onclick="OnClickAllDelBtn(this.id)">모두삭제</button>` + '</td>');
+    `<button id="list${i}" onclick="OnClickDayDelBtn(this.id)">모두삭제</button>` + '</td>');
 
     document.write(`<td><ul id='day-list${i}'></ul></td></tr></table>`); // 오른쪽 list
 
@@ -41,7 +41,7 @@ function OnClickAddBtn(lineNumber){
 }
 
 // 모두삭제버튼
-function OnClickAllDelBtn(className){
+function OnClickDayDelBtn(className){
     let classList = document.getElementsByClassName(className)
 
     for(var i=classList.length-1; i>=0; i--) {
@@ -55,3 +55,16 @@ function OnClickListBtn(clickedId){
     listBtnId.parentElement.remove();
 }
 
+// 전체삭제버튼
+window.addEventListener("load", function(){
+    const btn = document.getElementById("allDelBtn");
+    btn.addEventListener("click", function(){
+        for(let i = 0; i < 31; i++) {
+            let classList = document.getElementsByClassName(`list${i}`)
+
+            for(var j=classList.length-1; j>=0; j--) {
+                classList.item(j).parentElement.remove()
+            }
+        }
+    })
+});
