@@ -1,0 +1,13 @@
+.container {
+    padding: 10;
+    outline: solid black;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.box {
+    width: 80px;
+    height: 200px;
+}
