@@ -1,0 +1,27 @@
+<htm>
+    <head>
+        <script>
+            window.addEventListener("load", function(){
+                const btn = document.getElementById("btn");
+                btn.addEventListener("click", clickfn)
+            });
+
+            function clickfn(){
+                alert("clickme1")
+            }
+
+            window.addEventListener("load", function(){
+                const btn = document.getElementById("btn2");
+                btn.addEventListener("click", function(){
+                    alert("clickme2")
+                })
+            });
+
+
+        </script>
+    </head>
+    <body>
+        <button id="btn">clickMe</button>
+        <button id="btn2">clickMe2</button>
+    </body>
+</htm>
