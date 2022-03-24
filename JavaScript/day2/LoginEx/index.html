@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+        <link rel="stylesheet" href="./index.css">
+        <link rel="stylesheet" href="./app.js">
+        <title>form validation</title>
+    </head>
+    <body>
+        <div class="container">
+            <form id="form" method="post" action="http://httpbin.org/post" >
+                <div class="title">회원가입</div>
+                <div>
+                    <label for="username">이름</label>
+                    <i class="fas fa-user"></i>
+
+                    <input
+                        type="text"
+                        name="username"
+                        id="username"
+                        placeholder="marco"
+                     />
+
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+
+                    <div class="error"></div>
+                </div>
+
+                <div>
+                    <label for="email">이메일</label>
+                    <i class="far fa-envelope"></i>
+
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="marco@nhnacademy.com"
+                    />
+
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+
+                    <div class="error"></div>
+                </div>
+
+                <div>
+                    <label for="password">비밀번호</label>
+                    <i class="fas fa-lock"></i>
+
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Password!!"
+                    />
+
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+
+                    <div class="error"></div>
+                </div>
+
+                <div>
+                    <label for="gender">성별</label>
+                    <i class="fas fa-heart"></i>
+                    <select id="gender">
+                        <option value="">선택</option>
+                        <option value="남성" >남성</option>
+                        <option value="여성" >여성</option>
+                    </select>
+
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+
+                    <div class="error"></div>
+                </div>
+
+                <button id="btn-submit" type="submit">전송</button>
+            </form>
+        </div>
+    </body>
+</html>
