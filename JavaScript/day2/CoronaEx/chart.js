@@ -13,13 +13,13 @@ function DrawChart() {
         labels: label1,
         datasets: [
             {
-                label: '누적 확진자수',
+                label: '확진자(누적)',
                 backgroundColor: 'rgb(255, 0, 0)',
                 borderColor: 'rgb(255, 0, 0)',
                 data: decideCnt,
             },
             {
-                label: '누적 사망자수',
+                label: '사망자(누적)',
                 backgroundColor: 'rgb(0, 255, 255)',
                 borderColor: 'rgb(0, 255, 255)',
                 data: deathCnt,
