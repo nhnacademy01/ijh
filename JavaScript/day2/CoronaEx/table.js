@@ -13,6 +13,4 @@ function OnLoadTable() {
         hTbody.rows[i].cells[2].innerHTML = itemList[i].deathCnt
         hTbody.rows[i].cells[3].innerHTML = itemList[i].updateDt
     }
-
-    
 }
