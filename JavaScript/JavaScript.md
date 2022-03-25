@@ -14,3 +14,13 @@ mdn??
 차트 라이브러리
 
 bootstrap : 모바일에서 반응형웹을 빠르게 만들 수 있는 라이브러리
+
+# 03 / 25
+
+class, id, name?
+
+promise, fetch 차이?
+
+async, await?
+
+async가 붙어있으면 promise를 return해준다.
