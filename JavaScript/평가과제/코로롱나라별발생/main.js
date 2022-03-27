@@ -25,6 +25,13 @@ let asia = [];
 let america = [];
 let other = [];
 
+let chartData = []
+let testData = [
+    ['Others', 600],
+    ['France', 600],
+    ['kr', 600],
+]
+
 fetch(url + queryParams)
     .then(response => response.text())
     .then(data => new window.DOMParser().parseFromString(data, "text/xml"))
@@ -32,12 +39,14 @@ fetch(url + queryParams)
     .then(function (items) {
         for (let i = 0; i < items.length; i++) {
             let areaNm = items[i].getElementsByTagName("areaNm")[0].innerHTML; // 대륙
+            let nationNmEn = items[i].getElementsByTagName("nationNmEn")[0].innerHTML; // 대륙
             let nationNm = items[i].getElementsByTagName("nationNm")[0].innerHTML; // 지역
             let natDefCnt = items[i].getElementsByTagName("natDefCnt")[0].innerHTML; // 확진자수
             let natDeathRate = items[i].getElementsByTagName("natDefCnt")[0].innerHTML; // 사망률
 
             let item = {
                 areaNm,
+                nationNmEn,
                 nationNm,
                 natDefCnt,
                 natDeathRate,
@@ -47,6 +56,7 @@ fetch(url + queryParams)
         DisplayList(itemList, list_element, rows, current_page);
         setupPagination(itemList, pagination_element, rows);
         SetAreaName();
+        MapStart();
     }
     ).catch((error) => { console.log(error) });
 
@@ -77,6 +87,9 @@ function DisplayList(items, wrapper, rows_per_page, page) {
         wrapper.rows[i].cells[1].innerHTML = natDefCnt
         wrapper.rows[i].cells[2].innerHTML = incDec
         wrapper.rows[i].cells[3].innerHTML = natDeathRate
+
+        wrapper.rows[i].cells[0].setAttribute('onclick', `window.open('http://www.naver.com', '', '')`)
+        wrapper.rows[i].cells[0].setAttribute('style', 'cursor:pointer')
     }
 }
 
@@ -116,6 +129,7 @@ function PagenationButton(page, items) {
 
 // 각 지역별 나라배열 설정
 function SetAreaName() {
+
     for (let i = 0; i < itemList.length; i++) {
         switch (itemList[i].areaNm) {
             case '아프리카':
@@ -143,7 +157,8 @@ function SetAreaName() {
     }
 }
 
-var selectBox = document.querySelector('.area');
+// selectBox 이벤트리스너
+let selectBox = document.querySelector('.area');
 selectBox.onchange = function () {
     switch (selectBox.value) {
         case '아시아':
@@ -182,23 +197,27 @@ selectBox.onchange = function () {
 }
 
 // 지도
-google.charts.load('current', {
-    'packages': ['geochart'],
-});
-google.charts.setOnLoadCallback(drawRegionsMap);
+function MapStart() {
+    for (let i = 0; i < itemList.length; i++) {
+        chartData.push([itemList[i].nationNmEn, Number(itemList[i].natDefCnt)])
+    }
+    // 지도
+    google.charts.load('current', {
+        'packages': ['geochart'],
+    });
+    google.charts.setOnLoadCallback(drawRegionsMap);
+}
 
 function drawRegionsMap() {
-    var data = google.visualization.arrayToDataTable([
-        ['Country', 'Popularity'],
-        ['Germany', 2000],
-        ['United States', 300],
-        ['Brazil', 4000],
-        ['Canada', 5000],
-        ['FR', 60000],
-        ['RU', 700]
-    ]);
+    let data = new google.visualization.DataTable();
 
-    var options = {};
-    var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+    // Declare columns
+    data.addColumn('string', '국가')
+    data.addColumn('number', '확진자 수')
+
+    data.addRows(chartData)
+
+    let options = {};
+    let chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
     chart.draw(data, options);
 }

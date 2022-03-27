@@ -3,6 +3,7 @@ const pagination_element = document.getElementById('pagination');
 
 let current_page = 1; // 현재 페이지number
 let rows = 6;         // 한 페이지당 보여줄 item 갯수
+let cityNumber;       // 얘를 index.html에 넘겨주어야 하는데..
 
 let serviceKey = "OS4U4zQ8fMWfUZpyrjOX85mRqdFBCBkLk7pqagaoxcG1Bm9%2B73ZpV6LgRYjqCPCDF%2FKEC5BHbZ272zU%2BUwOTWQ%3D%3D";
 
@@ -67,9 +68,15 @@ function DisplayList (items, wrapper, rows_per_page, page) {
         wrapper.rows[i].cells[1].classList.add('item')
         wrapper.rows[i].cells[2].classList.add('item')
 
-        wrapper.rows[i].cells[0].setAttribute('onclick', `window.open('http://www.naver.com', '', '')`)
+        wrapper.rows[i].cells[0].setAttribute('id', `${i}`)
+        wrapper.rows[i].cells[0].setAttribute('onclick', 'OnclickCityName(this)')
         wrapper.rows[i].cells[0].setAttribute('style', 'cursor:pointer')
     }
+}
+
+function OnclickCityName(element) {
+    window.open('./search.html', '', '')
+    cityNumber = element;
 }
 
 function setupPagination (items, wrapper, rows_per_page) {
