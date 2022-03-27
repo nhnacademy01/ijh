@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background: #f3f3f3;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: #eee;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* list를 약간 표처럼? 만듬 */
+/* main .list {
+    width: 100%;
+    max-width: 768px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-top: 25px;
+} */
+
+/* listItem에 줄로 나누어주고, padding값도 줌 */
+/* main .list .item {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+} */
+
+/* main .list .item:first-of-type {
+    border-bottom: none;
+} */
+
+/* item위에 마우스올리면 색깔변함 */
+/* main .list .item:hover {
+    background: rgba(0, 0, 0, 0.05);
+
+} */
+
+.pagenumbers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 밑에 버튼 */
+.pagenumbers button {
+    width: 50px;
+    height: 50px;
+
+    appearance: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    background-color: #44aaee;
+
+    margin: 5px;
+    transition: 0.4s;
+
+    color: #fff;
+    font-size: 18px;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 마우스가 버튼위에 올라갔을 때 */
+.pagenumbers button:hover {
+    background-color: #44eeaa;
+}
+
+/* 해당 페이지가 선택되었을때 */
+.pagenumbers button.active {
+    background-color: #44eeaa;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Users</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./main.css" />
+</head>
+
+<body>
+    <header>
+        <h1>코로나19현황</h1>
+    </header>
+    <main>
+        <table class="table table-bordered table-striped table-hover table-info">
+            <thead class="thead-dark text-center">
+                <tr>
+                    <th>지역</th>
+                    <th>누적확진자</th>
+                    <th>신규확진자</th>
+                </tr>
+            </thead>
+            <tbody class="text-center" id="htmlTbody">
+            </tbody>
+        </table>
+        <div class="pagenumbers" id="pagination"></div>
+    </main>
+    <script src="./main.js"></script>
+</body>
+
+</html>

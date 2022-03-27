@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Users</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./main.css" />
+</head>
+
+<body>
+    <header>
+        <h1>각 나라별 코로나19현황</h1>
+        <select class="area">
+            <option value="">대륙선택</option>
+            <option value="아시아">아시아</option>
+            <option value="중동">중동</option>
+            <option value="아메리카">아메리카</option>
+            <option value="유럽">유럽</option>
+            <option value="오세아니아">오세아니아</option>
+            <option value="아프리카">아프리카</option>
+            <option value="기타">기타</option>
+        </select>
+    </header>
+    <main>
+        <table class="table table-bordered table-striped table-hover table-info">
+            <thead class="thead-dark text-center">
+                <tr>
+                    <th>국가</th>
+                    <th>누적확진자</th>
+                    <th>신규확진자</th>
+                    <th>사망자수(명)</th>
+                </tr>
+            </thead>
+            <tbody class="text-center" id="htmlTbody">
+            </tbody>
+        </table>
+        <div class="pagenumbers" id="pagination"></div>
+        <div id="regions_div" style="width: 900px; height: 500px;"></div>
+    </main>
+    <script src="./main.js"></script>
+</body>
+
+</html>

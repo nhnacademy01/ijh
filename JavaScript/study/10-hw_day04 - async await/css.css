@@ -1,0 +1,24 @@
+
+
+table, th{
+    border : 1px solid;
+    border-color: black;
+    border-collapse: collapse;
+}
+table {
+    margin:30px;
+    margin-bottom: 50px;
+    width: 50%;
+}
+
+td {
+    border : 1px solid;
+    border-color: black;
+    /* border-collapse: collapse; */
+}
+
+
+div {
+    width: 50%;
+}
+

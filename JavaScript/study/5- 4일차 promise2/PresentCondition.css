@@ -1,0 +1,14 @@
+th {
+    background-color: green;
+    color: white;
+}
+
+th, td {
+    border : green 1px solid;
+    padding : 10px 5px;
+}
+
+
+table, #curve_chart {
+    margin : auto;
+}
