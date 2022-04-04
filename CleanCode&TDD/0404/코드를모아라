@@ -1,0 +1,33 @@
+# example
+def ViewFilteredReplies(original_id):
+    filtered_replies = [];
+    root_message = Message.objects.get(original_id);
+    all_replies  = Message.objects.select(root_id=original_id);
+    root_message.view_count += 1;
+    root_message.last_view_time = datetime.datetime.now();
+    root_message.save();
+ 
+    for reply in all_replies:
+        if reply.spam_votes <= MAX_SPAM_VOTES;
+            filtered_replies.append(reply)
+ 
+    return filtered_replies
+
+# fix
+
+def ViewFilteredReplies(original_id):
+    MakeRootMsg()
+    return filtered_replies()
+
+def MakeRootMsg():
+    root_message = Message.objects.get(original_id);
+    root_message.view_count += 1;
+    root_message.last_view_time = datetime.now();
+    root_message.save();
+
+def filtered_replies():
+    filtered_replies = [];
+    for reply in Message.objects.select(original_id):
+        if reply.spam_votes <= MAX_SPAM_VOTES;
+            filtered_replies.append(reply)
+    return filtered_replies

@@ -1,0 +1,24 @@
+public class 코드중첩최소화 {
+    public static void main(String[] args) {
+
+        if (permission_result != SUCCESS) {
+            reply.WriteErrors("error reading permissions");
+            reply.Done();
+            return;
+        }
+
+        if (user_result == SUCCESS) {
+            reply.WriteErrors("");
+        } 
+        
+        reply.WriteErrors(user_result);
+        reply.Done();
+    }
+}
+
+안녕? 난 테블릿PC 사냥꾼이야 ^^ 
+이 아이를 혼자 두지 않는게 좋을거야 ㅎ
+이번 한번은 봐줄게.
+
+
+

@@ -1,0 +1,102 @@
+private void enterGame(String s) throws InterruptedException {
+    switch (userInfo.get().getStep()) {
+        case 0:
+            if (s.equals("")) {
+                sendMsg("용사 " + this.id
+                    + "님 던전에 있는 드래곤을 물리쳐주세요!!!\n1. 던전으로 들어간다.\n2. 도망간다. (게임 종료)");
+                userInfo.get().setStep(1);
+            }
+            break;
+        case 1:
+            if (s.equals("1")) {
+                sendMsg("용사(게이머) 상태\n" + userInfo.get().toString()
+                    + "\n야생의 슬라임이 나타났다.\n1. 공격\n2. 도망간다. (게임 종료)");
+                userInfo.get().setStep(2);
+            }
+            break;
+        case 2:
+            if (s.equals("1")) {
+                boolean flag = true;
+                sendMsg("슬라임 상태" + slime.get().toString());
+                while (flag) {
+                    userInfo.get().attack(slime.get());
+                    sendMsg("\n슬라임을 공격했습니다! 현재 슬라임HP : " + slime.get().getHp());
+                    if (slime.get().getHp() <= 0) {
+                        sendMsg("슬라임을 물리쳤다.\n-- 계속 할려면 엔터를 입력해주세요. --");
+                        userInfo.get().setStep(3);
+                        flag = false;
+                    }
+                    Thread.sleep(500);
+                    slime.get().attack(userInfo.get());
+                    sendMsg("슬라임에게 공격당했습니다! 현재 나의HP : " + userInfo.get().getHp());
+                    if (userInfo.get().getHp() <= 0) {
+                        sendMsg("2");
+                        flag = false;
+                    }
+                }
+            }
+            break;
+        case 3:
+            if (s.equals("")) {
+                sendMsg("야생의 오크가 나타났다.\n1. 공격\n2. 도망간다. (게임 종료)");
+                userInfo.get().setStep(4);
+            }
+            break;
+        case 4:
+            if (s.equals("1")) {
+                boolean flag = true;
+                sendMsg("오크 상태" + oak.get().toString());
+                while (flag) {
+                    userInfo.get().attack(oak.get());
+                    sendMsg("\n오크를 공격했습니다! 현재 오크HP : " + oak.get().getHp());
+                    if (oak.get().getHp() <= 0) {
+                        userInfo.get().setLevel(2);
+                        userInfo.get().setHp(150);
+                        userInfo.get().setPower(20);
+                        sendMsg("용사(게이머) 상태\n" + userInfo.get().toString());
+                        sendMsg("오크를 물리쳤다.\n레벨2로 상승했다.\n-- 계속 할려면 엔터를 입력해주세요. --");
+                        userInfo.get().setStep(5);
+                        flag = false;
+                    }
+                    Thread.sleep(500);
+                    oak.get().attack(userInfo.get());
+                    sendMsg("오크에게 공격당했습니다! 현재 나의HP : " + userInfo.get().getHp());
+                    if (userInfo.get().getHp() <= 0) {
+                        sendMsg("2"); // 클라이언트 강제종료시키기
+                        flag = false;
+                    }
+                }
+            }
+            break;
+        case 5:
+            if (s.equals("")) {
+                sendMsg("*보스* 드래곤이 나타났다.\n1. 공격\n2. 도망간다. (게임 종료)");
+            }
+            userInfo.get().setStep(6);
+            break;
+        case 6:
+            if (s.equals("1")) {
+                boolean flag = true;
+                sendMsg("드래곤 상태" + dragon.get().toString());
+                while (flag) {
+                    userInfo.get().attack(dragon.get());
+                    sendMsg("\n드래곤을 공격했습니다! 현재 드래HP : " + dragon.get().getHp());
+                    if (dragon.get().getHp() <= 0) {
+                        sendToAll("[외침] 용사 " + userInfo.get().getId() + "가 드래곤을 물리쳤다!.");
+                        sendMsg("3");
+                        flag = false;
+                    }
+                    Thread.sleep(500);
+                    dragon.get().attack(userInfo.get());
+                    sendMsg("드래곤에게 공격당했습니다! 현재 나의HP : " + userInfo.get().getHp());
+                    if (userInfo.get().getHp() <= 0) {
+                        sendMsg("2"); // 클라이언트 강제종료시키기
+                        flag = false;
+                    }
+                }
+            }
+            break;
+        default:
+            break;
+    }
+}
