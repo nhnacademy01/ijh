@@ -20,3 +20,5 @@
 </configuration>
 
 - 컨 쉬 T -> test생성
+
+- 컨 컨 + mvn clean compile -> 똥글뱅이랑 같은거? -> 아니네
