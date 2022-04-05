@@ -11,3 +11,12 @@
 - http://logback.qos.ch/manual/ -- 로그백 라이브러리(정독한번 해봐라)
 
 - 스트링 컴캣연산?
+
+# 04 / 05 
+[오전]
+- maven utf-8 설정
+<configuration>
+    <encoding>UTF-8</encoding>
+</configuration>
+
+- 컨 쉬 T -> test생성
