@@ -5,3 +5,5 @@
 - TDD 1일차 과제
 [4/5]
 - mouse 건전지
+- paymentservice, accountservice 안보고 될때까지 할거임
+- 스터핑이란?

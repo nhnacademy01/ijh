@@ -22,3 +22,14 @@
 - 컨 쉬 T -> test생성
 
 - 컨 컨 + mvn clean compile -> 똥글뱅이랑 같은거? -> 아니네
+
+[오후]
+* abstrack class가 아닌 일반 public class도 상속을 받을 수가 있나? 되던데
+
+- mock이라는게 뭔가?
+
+- SUT 와 DOC 란?
+
+# 04 / 06
+[오전]
+- 
