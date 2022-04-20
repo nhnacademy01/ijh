@@ -32,4 +32,5 @@ ex sudo apt install traceroute
 <터미널에서 텍스트 파일 편집>
 nano hello.py
 
-[오후]
+# 04 / 19
+[오전]
