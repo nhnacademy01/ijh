@@ -1,0 +1,20 @@
+
+n
+java:S1450!"SRemove the "host" field and declare it as a local variable in the relevant methods.(Ø¦øÝûÿÿÿÿ
+S	java:S106*"9Replace this use of System.out or System.err by a logger.(å»ëÿüÿÿÿÿ
+Q	java:S125N"<This block of commented-out lines of code should be removed.(„‡¶Ö
+Q	java:S125i"<This block of commented-out lines of code should be removed.(¡É·‘
+M
+java:S1481l"2Remove this unused "postDataBytes" local variable.(¤©Çœûÿÿÿÿ
+V	java:S125m"<This block of commented-out lines of code should be removed.(Š¥ôµøÿÿÿÿ
+T	java:S106€"9Replace this use of System.out or System.err by a logger.(‚ÈÙ÷þÿÿÿÿ
+T	java:S106„"9Replace this use of System.out or System.err by a logger.(Å­ËÝúÿÿÿÿ
+_
+java:S1128"DRemove this unused import 'java.nio.charset.StandardCharsets.UTF_8'.(öìáëøÿÿÿÿ
+D
+java:S1128
+")Remove this unused import 'java.net.URL'.(ñìÁ„üÿÿÿÿ
+H
+java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ
+C
+java:S1068!"(Remove this unused "host" private field.(Ø¦øÝûÿÿÿÿ

@@ -1,0 +1,6 @@
+
+S	java:S106""9Replace this use of System.out or System.err by a logger.(å»ëÿüÿÿÿÿ
+M
+java:S1117E"7Rename "url" which hides the field declared at line 28.(Ðåþò
+Z	java:S106W"9Replace this use of System.out or System.err by a logger.(¹¦…‡úÿÿÿÿ8ƒ¬¯Ì„0
+Z	java:S106_"9Replace this use of System.out or System.err by a logger.(ñ—¸½úÿÿÿÿ8ãÇ·Ì„0
