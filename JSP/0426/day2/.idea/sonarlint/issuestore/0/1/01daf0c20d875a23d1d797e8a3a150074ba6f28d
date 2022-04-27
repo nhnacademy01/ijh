@@ -1,0 +1,19 @@
+
+W
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(˜§÷æ
+T
+java:S1135"2Complete the task associated to this TODO comment.(Îœ•ðøÿÿÿÿ8Ó¥¤†0
+
+java:S1989 "dHandle the following exceptions that could be thrown by "readCookie": ServletException, IOException.(žçö‘ùÿÿÿÿ
+{
+java:S1989""eHandle the following exceptions that could be thrown by "writeCookie": ServletException, IOException.(…Âª±
+y
+java:S1989$"^Handle the following exceptions that could be thrown by "show": ServletException, IOException.(±Ñþˆýÿÿÿÿ
+Œ
+java:S1130>"wRemove the declaration of thrown exception 'javax.servlet.ServletException', as it cannot be thrown from method's body.(ýù±
+Œ
+java:S1130G"wRemove the declaration of thrown exception 'javax.servlet.ServletException', as it cannot be thrown from method's body.(ýù±
+@
+java:S1172F"*Remove this unused method parameter "req".(º™™™
+e
+java:S1192+"OUse already-defined constant 'MORE_PATH' instead of duplicating its value here.(¨þ±ï
